@@ -1,0 +1,134 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: url(../../img/fon.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.wrapper{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 1600px;
+    width: 100%;
+    height: 800px;
+    background: #F6F6F6;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: -1;
+}
+
+.slider{
+    background: black;
+    max-width: 402px;
+    width: 100%;
+    height: 600px;
+    margin-top: 100px;
+    margin-right: 20%;
+    margin-left: 118px;
+    border-radius: 10px;
+}
+
+.error{
+    margin: -25px 0px 20px 0px;
+}
+
+img{
+    border: 1px solid #DAD7D7;
+    border-radius: 10px;
+}
+
+.reg{
+    max-width: 540px;
+    width: 100%;
+    height: 435px;
+    border: 1px solid #DAD7D7;
+    border-radius: 15px;
+    background: #F9F9F9;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.title{
+    font-family: 'Dosis', sans-serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    margin-top: 22px;
+    margin-bottom: 40px;
+
+}
+
+input{
+    margin: 0px auto;
+    margin-bottom: 14px;
+    width: 288px;
+    height: 44px;
+    border: 1px solid #DAD7D7;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    padding-left: 18px;
+}
+
+input:focus{
+    border-color: #0066FF;
+    outline: #0066FF;
+}
+
+input:hover{
+    border: 1px solid #0066FF;
+}
+
+button{
+    width: 300px;
+    height: 50px;
+    margin: 0px auto;
+    border-radius: 5px;
+    border: none;
+    background: #0095F6;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 25px;
+    color: white;
+
+}
+
+button:hover{
+    background: #0783d6;
+}
+
+a{
+    text-decoration: none;
+    color: #0066FF;
+}
+
+.reset{
+    margin-top: 45px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.new-account{
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #DAD7D7;
+    border-radius: 10px;
+    background: #F9F9F9;
+    padding: 25px 0px 23px 53px;
+    margin: 20px auto;
+}
+
+.content{
+    border-radius: 15px;
+    max-width: 542px;
+    width: 100%;
+    height: 531px;
+    margin: 137px 0px 0px 0px;
+}
