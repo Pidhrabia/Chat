@@ -1,7 +1,3 @@
-<?php 
-   include '../php/reg.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
