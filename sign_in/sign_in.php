@@ -1,5 +1,5 @@
-<?php
-    include "../php/signin.php";
+<?php 
+    include_once "../php/db.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +18,7 @@
     <title>Реєстрація</title>
 </head>
 <body>
-    
-
-    <form action="../php/reg.php" method="post">
+    <form action="sign_in.php" method="post">
         <div class="wrapper">
                 <div class="slider">
                     <div class="slider-items"> <img src="../slider/img/slide_1.jpg" alt="" class="img"> </div>
@@ -31,7 +29,7 @@
             <div class="content">
                 <div class="reg">
                     <p class="title">Deer Chat</p>
-                    <p class="error"><?php echo $error?></p>
+                    <p class="error"><?echo $i;?></p>
                     <input type="text" name="login" placeholder="Логін" required> 
                     <input type="email" name="email" placeholder="Ел. пошта" required> 
                     <input type="password" name="pass" placeholder="Пароль" required> 
@@ -50,3 +48,7 @@
     <script src="../slider/js/slick.min.js"></script>
 </body>
 </html>
+
+<?php 
+    $mysqli -> close();
+?>
