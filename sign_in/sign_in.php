@@ -1,3 +1,7 @@
+<?php
+    include "../php/signin.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,7 @@
             <div class="content">
                 <div class="reg">
                     <p class="title">Deer Chat</p>
-                    <p class="error">Н</p>
+                    <p class="error"><?php echo $error?></p>
                     <input type="text" name="login" placeholder="Логін" required> 
                     <input type="email" name="email" placeholder="Ел. пошта" required> 
                     <input type="password" name="pass" placeholder="Пароль" required> 
