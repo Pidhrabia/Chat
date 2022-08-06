@@ -72,6 +72,8 @@ input{
     font-size: 20px;
     font-family: 'Inter', sans-serif;
     padding-left: 18px;
+    background: white;
+    color: black;
 }
 
 input:focus{
