@@ -60,7 +60,14 @@ img{
 
 .error{
     margin: -20px 0px 10px 0px;
+    color: red;
 }
+
+.success{
+    margin: -20px 0px 10px 0px;
+    color: green;
+}
+
 
 input{
     margin: 0px auto;

@@ -1,3 +1,3 @@
 <?php
-   $mysql = new mysqli('localhost', 'root', 'root', 'deer');
+    $mysql = new mysqli('localhost', 'root', 'root', 'deer');
 ?>

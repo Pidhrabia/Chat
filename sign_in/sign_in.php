@@ -1,5 +1,33 @@
-<?php 
+<?php
     include_once "../php/db.php";
+
+    $login = $_POST['login'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+    $confirm_pass = $_POST['confirm_pass'];
+
+    if(isset($login)){
+        if(mb_strlen($login) < 3){
+            $error = "Логін повинен містити більше 3 символів";
+        }elseif(mb_strlen($login) > 25){
+            $error = "Логін повинен містити менше 25 символів";
+        } else{
+            if(mb_strlen($pass) < 6){
+                $error = "Пароль повинен містити більше 6 символів";
+            }elseif(mb_strlen($pass) > 90){
+                $error = "Пароль повинен містити менше 90 символів";
+            }else{
+                if($pass != $confirm_pass){
+                    $error = "Паролі не співпадають";
+                }else{
+                    $pass = md5($pass);
+                    $mysql->query("INSERT INTO `user` (`login`, `email`, `password`) VALUES ('$login', '$email', '$pass')");
+                    $mysql->close();
+                    header("location: ../index.php");
+                }
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +57,7 @@
             <div class="content">
                 <div class="reg">
                     <p class="title">Deer Chat</p>
-                    <p class="error"><?echo $i;?></p>
+                    <p class="error"><?echo $error;?></p>
                     <input type="text" name="login" placeholder="Логін" required> 
                     <input type="email" name="email" placeholder="Ел. пошта" required> 
                     <input type="password" name="pass" placeholder="Пароль" required> 
@@ -48,7 +76,3 @@
     <script src="../slider/js/slick.min.js"></script>
 </body>
 </html>
-
-<?php 
-    $mysqli -> close();
-?>

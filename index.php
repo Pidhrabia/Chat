@@ -7,6 +7,6 @@
     <title>Головна</title>
 </head>
 <body>
-    
+    <a href="sign_in/sign_in.php">Зареєструватися</a>
 </body>
 </html>
