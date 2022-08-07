@@ -6,7 +6,21 @@
     $pass = $_POST['pass'];
     $confirm_pass = $_POST['confirm_pass'];
 
-    if(isset($login)){
+    $result = $mysql->query("SELECT * FROM `user` WHERE `login` = '$login' OR `email` = '$email'");
+    $user = $result->fetch_assoc();
+    
+    
+
+    /*if(isset($login)){
+        if($login == $user['login']){
+            $error = "Користувач з таким лоігном вже існує";
+        } else {
+            if($email == $user['email']){
+                $error = "Користувач з таким Email вже існує";
+            }else{  
+        }
+    }
+
         if(mb_strlen($login) < 3){
             $error = "Логін повинен містити більше 3 символів";
         }elseif(mb_strlen($login) > 90){
@@ -27,7 +41,7 @@
                 }
             }
         }
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>
