@@ -63,11 +63,9 @@ img{
     color: red;
 }
 
-.success{
-    margin: -20px 0px 10px 0px;
-    color: green;
+.form-input{
+    margin-top: 15px;
 }
-
 
 input{
     margin: 0px auto;

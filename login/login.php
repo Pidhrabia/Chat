@@ -9,7 +9,14 @@
     $result = $mysql->query("SELECT * FROM `user` WHERE `login` = '$login' AND `password` = '$password'");
     $user = $result->fetch_assoc();
 
-    setcookie('user', $user['login'], time() + 3600, "/");
+    if(isset($login)){
+        if($login != $user['login'] || $password != $user['password']){
+            $error = "Неправильний логін або пароль!";
+        } else {
+            setcookie('user', $user['login'], time() + 3600, "/");
+            header("Location: ../index.php");
+        }
+    }
 
     $mysql->close();    
 ?>

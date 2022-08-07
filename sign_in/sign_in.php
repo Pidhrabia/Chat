@@ -69,11 +69,14 @@
                 <div class="reg">
                     <p class="title">Deer Chat</p>
                     <p class="error"><?echo $error;?></p>
-                    <input type="text" name="login" placeholder="Логін" required> 
-                    <input type="email" name="email" placeholder="Ел. пошта" required> 
-                    <input type="password" name="pass" placeholder="Пароль" required> 
-                    <input type="password" name="confirm_pass" placeholder="Підтвердіть пароль" required>
-                    <button type="submit">Зареєструватися</button>
+                    <div class="form-input">
+                        <input type="text" name="login" placeholder="Логін" required> 
+                        <input type="email" name="email" placeholder="Ел. пошта" required> 
+                        <input type="password" name="pass" placeholder="Пароль" required> 
+                        <input type="password" name="confirm_pass" placeholder="Підтвердіть пароль" required>
+                        <button type="submit">Зареєструватися</button>
+                    </div>
+                    
                 </div>
 
                 <div class="new-account">
