@@ -1,3 +1,11 @@
+<?php
+    if($_COOKIE['user'] == ''){
+        header("Location: login/login.php");
+    }else{
+        $login = $_COOKIE['user'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,12 @@
     <title>Головна</title>
 </head>
 <body>
+    <p><?php echo $login;?></p>
+
     <a href="sign_in/sign_in.php">Зареєструватися</a>
+    <br>
+    <a href="login/login.php">Увійти</a>
+    <br>
+    <a href="php/exit.php">Вийти</a>
 </body>
 </html>
