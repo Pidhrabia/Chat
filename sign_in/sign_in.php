@@ -1,6 +1,21 @@
 <?php
     include_once "../php/db.php";
 
+    function get_ip()
+    {
+        $value = '';
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $value = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $value = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
+            $value = $_SERVER['REMOTE_ADDR'];
+        }
+      
+        return $value;
+    }
+
+    $ip = get_ip();
 
     $login = $_POST['login'];
     $email = $_POST['email'];
@@ -31,7 +46,7 @@
                             $error = "Паролі не співпадають";
                         }else{
                             $password = md5($pass);
-                            $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`) VALUES ('$login', '$email', '$password', '$pass')");
+                            $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `ip`) VALUES ('$login', '$email', '$password', '$pass', '$ip')");
                             $mysql->close();
                             header("location: ../index.php");
                         }
