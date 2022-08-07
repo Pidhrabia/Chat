@@ -9,39 +9,36 @@
     $result = $mysql->query("SELECT * FROM `user` WHERE `login` = '$login' OR `email` = '$email'");
     $user = $result->fetch_assoc();
     
-    
-
-    /*if(isset($login)){
-        if($login == $user['login']){
-            $error = "Користувач з таким лоігном вже існує";
-        } else {
-            if($email == $user['email']){
-                $error = "Користувач з таким Email вже існує";
-            }else{  
-        }
-    }
-
+    if(isset($login)){
         if(mb_strlen($login) < 3){
             $error = "Логін повинен містити більше 3 символів";
-        }elseif(mb_strlen($login) > 90){
+        } elseif(mb_strlen($login) > 90){
             $error = "Логін повинен містити менше 90 символів";
-        } else{
-            if(mb_strlen($pass) < 6){
-                $error = "Пароль повинен містити більше 6 символів";
-            }elseif(mb_strlen($pass) > 90){
-                $error = "Пароль повинен містити менше 90 символів";
-            }else{
-                if($pass != $confirm_pass){
-                    $error = "Паролі не співпадають";
-                }else{
-                    $password = md5($pass);
-                    $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`) VALUES ('$login', '$email', '$password', '$pass')");
-                    $mysql->close();
-                    header("location: ../index.php");
+        } else {
+            if($login == $user['login']){
+                $error = "Користувач з таким лоігном вже існує";
+            } else {
+                if($email == $user['email']){
+                    $error = "Користувач з таким Email вже існує";
+                }else{  
+                    if(mb_strlen($pass) < 6){
+                        $error = "Пароль повинен містити більше 6 символів";
+                    }elseif(mb_strlen($pass) > 90){
+                        $error = "Пароль повинен містити менше 90 символів";
+                    }else{
+                        if($pass != $confirm_pass){
+                            $error = "Паролі не співпадають";
+                        }else{
+                            $password = md5($pass);
+                            $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`) VALUES ('$login', '$email', '$password', '$pass')");
+                            $mysql->close();
+                            header("location: ../index.php");
+                        }
+                    }
                 }
             }
         }
-    }*/
+    }  
 ?>
 
 <!DOCTYPE html>
