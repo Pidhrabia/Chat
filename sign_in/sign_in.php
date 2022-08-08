@@ -49,26 +49,27 @@
                                 $password = md5($pass);
                                 $hash = md5($login.time());
                         
+                                // Переменная $headers нужна для Email заголовка
                                 $headers  = "MIME-Version: 1.0\r\n";
                                 $headers .= "Content-type: text/html; charset=utf-8\r\n";
                                 $headers .= "To: <$email>\r\n";
-                                $headers .= "From: <Deer Chat>\r\n";
+                                $headers .= "From: <DeerChat>\r\n";
+                                // Сообщение для Email
                                 $message = '
                                             <html>
                                             <head>
-                                            <title>Підтвердіть реєстрацію</title>
+                                            <title>Підтвердіть Email</title>
                                             </head>
                                             <body>
-                                            <p>Щоб підтвердити Email перейдіть за посиланням<a href="/confirm.php?hash=' . $hash . '">Підтвердити реєстрацію</a></p>
+                                            <p>Щоб підтвердити Email, перейдіть за <a href="https://deerchat.000webhostapp.com/php/confirm.php?hash=' . $hash . '">посиланням</a></p>
                                             </body>
                                             </html>
                                             ';
                         
                                 $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `get_db`, `email_confirmed`, `hash`) VALUES ('$login', '$email', '$password', '$pass', '$get_db', '1', '$hash')");
                                 $mysql->close();
-                                
-                                if (mail($email, "Підтвердження Email на сайті Deer Chat", $message, $headers)) {
-                                    $error =  'Підтвердіть Email';
+                                if (mail($email, "Підтвердіть Email на сайті DeerChat", $message, $headers)) {
+                                header("Location: ../chek/chek.html");
                                 }
                             }
                         }
@@ -77,13 +78,6 @@
             }
         }
     }  
-
-
-
-
-
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +107,7 @@
             <div class="content">
                 <div class="reg">
                     <p class="title">Deer Chat</p>
-                    <p class="error"><?echo $error;?></p>
+                    <p class="error"><?php echo $error;?></p>
                     <div class="form-input">
                         <input type="text" name="login" placeholder="Логін" required> 
                         <input type="email" name="email" placeholder="Ел. пошта" required> 
