@@ -45,10 +45,29 @@
                         if($pass != $confirm_pass){
                             $error = "Паролі не співпадають";
                         }else{
-                            $password = md5($pass);
-                            $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `get_db` ) VALUES ('$login', '$email', '$password', '$pass', '$get_db')");
-                            $mysql->close();
-                            header("location: ../index.php");
+                            if(!$error){
+                                $headers  = "MIME-Version: 1.0\r\n";
+                                $headers .= "Content-type: text/html; charset=utf-8\r\n";
+                                $headers .= "To: <$email>\r\n";
+                                $headers .= "From: <Deer Chat>\r\n";
+                                $message = '
+                                            <html>
+                                            <head>
+                                            <title>Підтвердіть реєстрацію</title>
+                                            </head>
+                                            <body>
+                                            <p>Щоб підтвердити Email перейдіть за посиланням<a href="/confirm.php?hash=' . $hash . '">Підтвердити реєстрацію</a></p>
+                                            </body>
+                                            </html>
+                                            ';
+
+                                $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `get_db`, `email_confirmed`, `hash`) VALUES ('$login', '$email', '$password', '$pass', '$get_db', '1', '$hash')");
+                                $mysql->close();
+                                
+                                if (mail($email, "Підтвердження Email на сайті Deer Chat", $message, $headers)) {
+                                    $error =  'Підтвердіть Email';
+                                }
+                            }
                         }
                     }
                 }
