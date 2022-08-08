@@ -109,8 +109,8 @@
                     <p class="title">Deer Chat</p>
                     <p class="error"><?php echo $error;?></p>
                     <div class="form-input">
-                        <input type="text" name="login" placeholder="Логін" required> 
-                        <input type="email" name="email" placeholder="Ел. пошта" required> 
+                        <input type="text" name="login" autocomplete="off" placeholder="Логін" required> 
+                        <input type="email" name="email" autocomplete="off" placeholder="Ел. пошта" required> 
                         <input type="password" name="pass" placeholder="Пароль" required> 
                         <input type="password" name="confirm_pass" placeholder="Підтвердіть пароль" required>
                         <button type="submit">Зареєструватися</button>
