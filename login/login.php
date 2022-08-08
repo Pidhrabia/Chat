@@ -53,16 +53,24 @@
                 <div class="reg">
                     <p class="title">Deer Chat</p>
                     <p class="error"><?php echo $error;?></p>
-                    <input type="text" name="login" placeholder="Логін" required> 
-                    <input type="password" name="pass" placeholder="Пароль" required> 
-                    <button type="submit">Увійти</button>
-                    <p class="reset"><a href="#" onclick="openbox('deer'); return false">Забули пароль?</a></p>
+                    <input type="text" name="login" class="input" placeholder="Логін" required> 
+                    <input type="password" name="pass" class="input" placeholder="Пароль" required> 
+                    <button type="submit" class="button">Увійти</button>
+                    <p class="reset"><a href="#" onclick="openbox('respass'); return false">Забули пароль?</a></p>
                 </div>
 
                 <div class="new-account">
                     <p class="create">Не маєте облікового запису? <a href="../sign_in/sign_in.php">Зареєструйтеся</a></p>
                 </div>
             </div>
+        </div>
+    </form>
+
+    <form action="" method="post">
+        <div id="respass" class="respass" style="display: none;">
+            <p class="e-title">Введіть Email для відновлення пароля</p>
+            <input type="text" name="resetpass" class="email-input">
+            <button class="email-button">Відновити</button>
         </div>
     </form>
     

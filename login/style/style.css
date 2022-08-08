@@ -66,7 +66,7 @@ img{
 
 }
 
-input{
+.input{
     margin: 0px auto;
     margin-bottom: 14px;
     width: 288px;
@@ -80,16 +80,16 @@ input{
     color: black;
 }
 
-input:focus{
+.input:focus{
     border-color: #0066FF;
     outline: #0066FF;
 }
 
-input:hover{
+.input:hover{
     border: 1px solid #0066FF;
 }
 
-button{
+.button{
     width: 300px;
     height: 50px;
     margin: 0px auto;
@@ -103,7 +103,7 @@ button{
 
 }
 
-button:hover{
+.button:hover{
     background: #0783d6;
 }
 
@@ -134,4 +134,63 @@ a{
     width: 100%;
     height: 531px;
     margin: 137px 0px 0px 0px;
+}
+
+.respass{
+    background: #F6F6F6;
+    border: 1px solid #DAD7D7;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.e-title{
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+}
+
+.email-input{
+    margin: 0px auto;
+    width: 288px;
+    height: 44px;
+    border: 1px solid #DAD7D7;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    padding-left: 18px;
+    background: white;
+    color: black;
+}
+
+.email-input:focus{
+    border-color: #0066FF;
+    outline: #0066FF;
+}
+
+.email-input:hover{
+    border: 1px solid #0066FF;
+}
+
+.email-button{
+    width: 300px;
+    height: 50px;
+    margin: 0px auto;
+    border-radius: 5px;
+    border: none;
+    background: #0095F6;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 15px;
+    color: white;
+
+}
+
+.email-button:hover{
+    background: #0783d6;
 }
