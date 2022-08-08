@@ -1,21 +1,21 @@
 <?php
     include_once "../php/db.php";
 
-    function get_ip()
+    function get_db()
     {
         $value = '';
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $value = $_SERVER['HTTP_CLIENT_IP'];
+          $value = $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $value = $_SERVER['HTTP_X_FORWARDED_FOR'];
+           $value = $_SERVER['HTTP_X_FORWARDED_FOR'];
         } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
-            $value = $_SERVER['REMOTE_ADDR'];
+          $value = $_SERVER['REMOTE_ADDR'];
         }
-      
-        return $value;
+       
+     return $value;
     }
-
-    $ip = get_ip();
+ 
+    $get_db = get_db();
 
     $login = $_POST['login'];
     $email = $_POST['email'];
@@ -46,7 +46,7 @@
                             $error = "Паролі не співпадають";
                         }else{
                             $password = md5($pass);
-                            $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `ip`) VALUES ('$login', '$email', '$password', '$pass', '$ip')");
+                            $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `get_db` ) VALUES ('$login', '$email', '$password', '$pass', '$get_db')");
                             $mysql->close();
                             header("location: ../index.php");
                         }
@@ -55,10 +55,6 @@
             }
         }
     }  
-
-    
-    
-
 ?>
 
 <!DOCTYPE html>
