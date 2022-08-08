@@ -46,6 +46,9 @@
                             $error = "Паролі не співпадають";
                         }else{
                             if(!$error){
+                                $password = md5($pass);
+                                $hash = md5($login.time());
+                        
                                 $headers  = "MIME-Version: 1.0\r\n";
                                 $headers .= "Content-type: text/html; charset=utf-8\r\n";
                                 $headers .= "To: <$email>\r\n";
@@ -60,7 +63,7 @@
                                             </body>
                                             </html>
                                             ';
-
+                        
                                 $mysql->query("INSERT INTO `user` (`login`, `email`, `password`, `temp`, `get_db`, `email_confirmed`, `hash`) VALUES ('$login', '$email', '$password', '$pass', '$get_db', '1', '$hash')");
                                 $mysql->close();
                                 
@@ -74,6 +77,13 @@
             }
         }
     }  
+
+
+
+
+
+    
+
 ?>
 
 <!DOCTYPE html>
